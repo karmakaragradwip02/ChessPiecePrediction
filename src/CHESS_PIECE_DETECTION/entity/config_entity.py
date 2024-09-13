@@ -15,6 +15,7 @@ class DataPreparationConfig:
     train_dir: Path
     test_dir: Path
     val_dir: Path
+    data_yaml: Path
 
 @dataclass(frozen= True)
 class ModelPreparationConfig:

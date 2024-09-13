@@ -1,6 +1,6 @@
-from RiceImgClassification.constants import *
-from RiceImgClassification.utils.common import read_yaml, create_directories
-from RiceImgClassification.entity.config_entity import DataIngestionConfig, DataPreparationConfig, ModelPreparationConfig, ModelTrainingConfig, ModelEvaluationConfig
+from CHESS_PIECE_DETECTION.constants import *
+from CHESS_PIECE_DETECTION.utils.common import read_yaml, create_directories
+from CHESS_PIECE_DETECTION.entity.config_entity import DataIngestionConfig, DataPreparationConfig
 
 class ConfigurationManager:
     def __init__(self,
@@ -35,59 +35,8 @@ class ConfigurationManager:
             data_dir = config.data_dir,
             train_dir = config.train_dir,
             test_dir = config.test_dir,
-            val_dir = config.val_dir
+            val_dir = config.val_dir,
+            data_yaml = config.data_yaml
         )
 
         return data_preparation_config
-    
-    def get_model_preparation_config(self) -> ModelPreparationConfig:
-        config = self.config.prepare_model
-
-        create_directories([config.root_dir])
-
-        model_preparation_config = ModelPreparationConfig(
-            root_dir = Path(config.root_dir),
-            model_dir = Path(config.model_dir),
-            weight_decay = self.params.weight_decay,
-            input_image_size= self.params.input_image_size,
-            learning_rate = self.params.learning_rate,
-            epsilon = self.params.epsilon,
-            classes = self.params.classes,
-            epochs = self.params.epochs,
-            decay_rate = self.params.decay_rate
-        )
-
-        return model_preparation_config
-    
-    def get_model_training_config(self) -> ModelTrainingConfig:
-        config = self.config.training
-
-        create_directories([config.root_dir])
-
-        model_training_config = ModelTrainingConfig(
-            root_dir = Path(config.root_dir),
-            model_dir = Path(config.model_dir),
-            trained_model_dir = Path(config.trained_model_dir),
-            history_dir= Path(config.history_dir),
-            epochs = self.params.epochs
-        )
-
-        return model_training_config
-    
-    def get_model_evaluation_config(self) -> ModelEvaluationConfig:
-        config = self.config.model_evaluation
-
-        create_directories([config.root_dir])
-
-        model_evaluation_config = ModelEvaluationConfig(
-            root_dir = Path(config.root_dir),
-            trained_model_dir = Path(config.trained_model_dir),
-            history_dir= Path(config.history_dir),
-            graph_dir = Path(config.graph_dir),
-            val_dir= Path(config.val_dir),
-            mlflow_uri="https://dagshub.com/karmakaragradwip02/rice_image_detection_cnn.mlflow",
-            all_params=self.params,
-            epochs = self.params.epochs
-        )
-
-        return model_evaluation_config
