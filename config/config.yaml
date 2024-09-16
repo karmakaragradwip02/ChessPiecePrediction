@@ -14,11 +14,12 @@ data_preparation:
   val_dir: artifacts/data_preparation/valid
   data_yaml: artifacts/data_preparation/
 
-prepare_model:
-  root_dir: artifacts/prepare_model
-
 training:
   root_dir: artifacts/training
-
-model_evaluation:
-  root_dir: artifacts/evaluation
+  model_dir: artifacts/training/model
+  trained_model: artifacts/training/trained_model
+  train_dir: artifacts/data_preparation/train
+  test_dir: artifacts/data_preparation/test
+  val_dir: artifacts/data_preparation/valid
+  data_yaml: artifacts/data_preparation/
+  test_res_dir: artifacts/training/results
