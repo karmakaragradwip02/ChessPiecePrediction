@@ -1,25 +1,25 @@
-artifacts_root: artifacts
+artifacts_root: datasets/artifacts
 
 data_ingestion:
-  root_dir: artifacts/data_ingestion
+  root_dir: datasets/artifacts/data_ingestion
   source_url: https://drive.google.com/file/d/1CUDIA_8KffPmvnOfMTnN6P5AyDJRvBBa/view?usp=sharing
-  local_data_file: artifacts/data_ingestion/data.zip
-  unzip_dir: artifacts/data_ingestion
+  local_data_file: datasets/artifacts/data_ingestion/data.zip
+  unzip_dir: datasets/artifacts/data_ingestion
 
 data_preparation:
-  root_dir: artifacts/data_preparation
-  data_dir: artifacts/data_ingestion
-  train_dir: artifacts/data_preparation/train
-  test_dir: artifacts/data_preparation/test
-  val_dir: artifacts/data_preparation/valid
-  data_yaml: artifacts/data_preparation/
+  root_dir: datasets/artifacts/data_preparation
+  data_dir: datasets/artifacts/data_ingestion
+  train_dir: datasets/artifacts/data_preparation/train
+  test_dir: datasets/artifacts/data_preparation/test
+  val_dir: datasets/artifacts/data_preparation/valid
+  data_yaml: datasets/artifacts/data_preparation/data.yaml
 
 training:
-  root_dir: artifacts/training
-  model_dir: artifacts/training/model
-  trained_model: artifacts/training/trained_model
-  train_dir: artifacts/data_preparation/train
-  test_dir: artifacts/data_preparation/test
-  val_dir: artifacts/data_preparation/valid
-  data_yaml: artifacts/data_preparation/
-  test_res_dir: artifacts/training/results
+  root_dir: datasets/artifacts/training
+  model_dir: datasets/artifacts/training/model
+  trained_model: datasets/artifacts/training/trained_model
+  train_dir: datasets/artifacts/data_preparation/train
+  test_dir: datasets/artifacts/data_preparation/test
+  val_dir: datasets/artifacts/data_preparation/valid
+  data_yaml: datasets/artifacts/data_preparation/
+  res_dir: datasets/artifacts/training/results

@@ -12,8 +12,8 @@ class DataPreparationTrainingPipeline:
         config = ConfigurationManager()
         data_preparation_config = config.get_data_preparation_config()
         data_preparation = DataPreparation(config=data_preparation_config)
-        data_preparation.copying_data('artifacts/data_ingestion/train', 'artifacts/data_ingestion/test', 'artifacts/data_ingestion/valid')
-        data_preparation.change_yaml()
+        data_preparation.copying_data('datasets/artifacts/data_ingestion/train', 'datasets/artifacts/data_ingestion/test', 'datasets/artifacts/data_ingestion/valid')
+        data_preparation.change_yaml('datasets/artifacts/data_ingestion/data.yaml')
     
 
 if __name__ == '__main__':

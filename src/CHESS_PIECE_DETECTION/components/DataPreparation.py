@@ -29,30 +29,28 @@ class DataPreparation:
                 logger.info(f"Folder copied successfully from {src} to {path}")
             except Exception as e:
                 logger.info(f"Error occurred while copying folder: {e}")
-    def change_yaml(self):
+    def change_yaml(self, data):
         train_folder = self.config.train_dir
         test_folder = self.config.test_dir
         val_folder = self.config.val_dir
-        data_yaml = 'artifacts/data_ingestion/data.yaml'
 
         try:
-            with open(data_yaml, 'r') as file:
+            with open(data, 'r') as file:
                 config_data = yaml.safe_load(file)
 
-            config_data['train'] = train_folder+f'/images'
-            config_data['val'] = val_folder+f'/images'
-            config_data['test'] = test_folder+f'/images'
+            config_data['train'] = train_folder.replace('datasets/', '') + '/images'
+            config_data['val'] = val_folder.replace('datasets/', '') + '/images'
+            config_data['test'] = test_folder.replace('datasets/', '') + '/images'
 
-            with open(data_yaml, 'w') as file:
+            with open(data, 'w') as file:
                 yaml.safe_dump(config_data, file)
 
             logger.info("YAML file updated successfully.")
 
-            artifacts_dir = self.config.data_yaml
-            os.makedirs(artifacts_dir, exist_ok=True)
-            dest_path = os.path.join(artifacts_dir, os.path.basename(data_yaml))
-            shutil.copy(data_yaml, dest_path)
-            logger.info(f"YAML file copied to {dest_path}")
+            data_yaml = self.config.data_yaml
+            os.makedirs(self.config.root_dir, exist_ok=True)
+            shutil.copy(data, data_yaml)
+            logger.info(f"YAML file copied to {data_yaml}")
 
         except Exception as e:
             logger.info(f"Error while updating YAML file: {e}")
