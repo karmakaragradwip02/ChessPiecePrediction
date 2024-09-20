@@ -20,3 +20,12 @@ pip3 install torch torchvision torchaudio --index-url https://download.pytorch.o
 pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121  # for CUDA 12.1
 pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124  # for CUDA 12.4
 ```
+
+## Change the config.yaml, dvc.yaml, params.yaml as well as the data.yaml files for the yolo dataset
+
+## Then run the dvc.yaml file 
+
+```bash
+dvc init
+dvc repro
+```
