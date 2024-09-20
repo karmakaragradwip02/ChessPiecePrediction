@@ -1,6 +1,6 @@
 # Chess Piece Prediction
 ## Creating new conda environment
-
+![alt text](datasets/artifacts/data_preparation/train/images/0b4ba28f0c759a11750a6430649b52e3_jpg.rf.711771a2d93077f33a4e16b6cd6df047.jpg)
 ```bash
 conda create -n yolo_od python>=3.8 -y
 conda activate yolo_od
